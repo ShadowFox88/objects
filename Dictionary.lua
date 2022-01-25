@@ -4,36 +4,36 @@ local Mapping = require(RS.Objects.Mapping)
 local Utils = require(RS.Utils)
 
 local Dictionary = {}
-	  Dictionary.__index = Dictionary
+      Dictionary.__index = Dictionary
 
 
 function Dictionary.new(mapping)
-	mapping = if mapping ~= nil then mapping else {}
+    mapping = if mapping ~= nil then mapping else {}
 
-	local count = 0
+    local count = 0
 
-	for _, _ in pairs(mapping) do
-		count += 1
-	end
+    for _, _ in pairs(mapping) do
+        count += 1
+    end
 
-	local self = Mapping.new(mapping)
+    local self = Mapping.new(mapping)
 
-	rawset(self, "Count", count)
+    rawset(self, "Count", count)
 
-	return setmetatable(self, Dictionary)
+    return setmetatable(self, Dictionary)
 end
 
 
 function Dictionary:__newindex(key, value)
-	if self.Internal[key] then return end
+    if self.Internal[key] then return end
 
-	self.Count += 1
-	self.Internal[key] = value
+    self.Count += 1
+    self.Internal[key] = value
 end
 
 
 function Dictionary:__len()
-	return self.Count
+    return self.Count
 end
 
 
