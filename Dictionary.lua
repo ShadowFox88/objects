@@ -1,7 +1,4 @@
-local RS = game:GetService("ReplicatedStorage")
-
-local Mapping = require(RS.Objects.Mapping)
-local Utils = require(RS.Utils)
+local Mapping = require(script.Parent.Mapping)
 
 local Dictionary = {}
       Dictionary.__index = Dictionary

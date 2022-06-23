@@ -1,8 +1,6 @@
-local RS = game:GetService("ReplicatedStorage")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local stringify = require(RS.ThirdParty.Stringify)
-
-local Utils = require(RS.Utils)
+local stringify = require(ReplicatedStorage.ThirdParty.Stringify)
 
 local Mapping = {}
       Mapping.__index = Mapping
