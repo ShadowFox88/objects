@@ -1,5 +1,3 @@
-local Mapping = require(script.Parent.Mapping)
-
 local Queue = {}
       Queue.__index = Queue
 
