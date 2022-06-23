@@ -1,5 +1,3 @@
-local RS = game:GetService("ReplicatedStorage")
+local Trampoline = require(script.Trampoline)
 
-local Module = require(RS.Utils.Module)
-
-return Module.init(script)
+return Trampoline.new(script)
