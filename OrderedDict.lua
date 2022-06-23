@@ -1,9 +1,3 @@
-local RS = game:GetService("ReplicatedStorage")
-
-local stringify = require(RS.ThirdParty.Stringify)
-
-local Utils = require(RS.Utils)
-
 local OrderedDict = {}
       OrderedDict.__index = OrderedDict
 
@@ -39,7 +33,42 @@ function OrderedDict:__tostring()
 end
 
 
-function OrderedDict:pop(key)
+function OrderedDict:Keys()
+    local index = 0
+
+    return function()
+        index += 1
+
+        return self._Ordered[index]
+    end
+end
+
+
+function OrderedDict:Values()
+    local index = 0
+
+    return function()
+        index += 1
+        local key = self._Ordered[index]
+
+        return self[key]
+    end
+end
+
+
+function OrderedDict:Entries()
+    local index = 0
+
+    return function()
+        index += 1
+        local key = self._Ordered[index]
+
+        return key, self[key]
+    end
+end
+
+
+function OrderedDict:Pop(key)
     if #self._Ordered > 0 then
         key = key or select(-1, table.unpack(self._Ordered))
 
@@ -57,7 +86,7 @@ function OrderedDict:pop(key)
 end
 
 
-function OrderedDict:popitem(FIFO)
+function OrderedDict:Popitem(FIFO)
     FIFO = if FIFO ~= nil then FIFO else true
 
     local key;
