@@ -1,0 +1,3 @@
+[submodule "Stringify"]
+	path = Stringify
+	url = https://github.com/cyrus01337/rojo-stringify.git

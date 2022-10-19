@@ -1,13 +1,11 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local stringify = require(ReplicatedStorage.ThirdParty.Stringify)
+local stringify = require(script.Parent.Stringify)
 
 local Mapping = {}
       Mapping.__index = Mapping
 
 
 function Mapping.new(mapping)
-    mapping = if mapping ~= nil then mapping else {}
+    mapping = mapping or {}
 
     return setmetatable({Internal = mapping}, Mapping)
 end
