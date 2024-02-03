@@ -5,6 +5,10 @@ function Trampoline.new(parent: Instance, depth: number)
 	local actualModule = {}
 
 	for _, module in parent:GetChildren() do
+		if not module:IsA("ModuleScript") then
+			continue
+		end
+
 		actualModule[module.Name] = require(module)
 
 		if depth > 1 then
