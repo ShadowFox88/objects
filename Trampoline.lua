@@ -1,6 +1,6 @@
 local Trampoline = {}
 
-function Trampoline.new(parent, depth)
+function Trampoline.new(parent: Instance, depth: number)
 	depth = depth or 1
 	local actualModule = {}
 
